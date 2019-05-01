@@ -1,0 +1,97 @@
+{
+  "$schema": "https://raw.githubusercontent.com/koriym/spec/schema/schemas/alps.json",
+  "alps": {
+    "doc": {
+      "value": "ALPS Profile"
+    },
+    "version": "1.0",
+    "descriptor": [
+      {
+        "id": "linkList",
+        "name": "Link List",
+        "type": "semantic",
+        "descriptor": [
+          {"href": "#id"},
+          {"href": "#name"},
+          {"href": "#path"},
+          {
+            "id": "linkItem",
+            "type": "semantic",
+            "name": "Link Item",
+            "descriptor": [
+              {"href": "#id"},
+              {"href": "#uri"},
+              {"href": "#title"},
+              {"href": "#linkList"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Index",
+        "type": "semantic",
+        "name": "Index page"
+      },
+      {
+        "id": "id",
+        "type": "semantic",
+        "def": "https://schema.org/identifier"
+      },
+      {
+        "id": "uri",
+        "type": "semantic",
+        "doc": {
+          "value": "リンクのURI"
+        }
+      },
+      {
+        "id": "title",
+        "type": "semantic",
+        "doc": {
+          "value": "リンク先のタイトル"
+        }
+      },
+      {
+        "id": "name",
+        "type": "semantic",
+        "doc": {
+          "value": "名前"
+        }
+      },
+      {
+        "id": "path",
+        "type": "semantic",
+        "doc": {
+          "value": "リンクのパス。ex( /recipe/noodle"
+        }
+      },
+      {
+        "id": "link-list",
+        "type": "safe",
+        "name": "Link List",
+        "rt": "LinkList"
+      },
+      {
+        "id": "link-item",
+        "type": "safe",
+        "name": "Link Item",
+        "descriptor": [
+          {
+            "id": "#link_id"
+          }
+        ]
+      },
+      {
+        "id": "add-link",
+        "type": "idempotent",
+        "name": "Add new link",
+        "descriptor": [
+          {
+            "id": "#uri"
+          }
+        ]
+      }
+    ]
+  }
+}
+
