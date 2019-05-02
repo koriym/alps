@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Koriym\Alps;
 
+use Koriym\Alps\Exception\DuplicatedIdException;
+use Koriym\Alps\Exception\NoTypeException;
 use function file_exists;
 use function file_get_contents;
 use function json_decode;
-use Koriym\Alps\Exception\DuplicatedIdException;
-use Koriym\Alps\Exception\NoTypeException;
 use function property_exists;
 use function serialize;
 

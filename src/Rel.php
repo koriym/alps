@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Koriym\Alps;
 
-use function json_encode;
 use Koriym\Alps\Exception\NoIdException;
 use Koriym\Alps\Exception\NoSemanticException;
+use function json_encode;
 use function property_exists;
 
-final class Rel
+final class Rel extends \stdClass
 {
     public $id;
 
