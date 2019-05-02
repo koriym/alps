@@ -43,7 +43,7 @@ EOT;
         $lines = [];
         ksort($semantics);
         foreach ($semantics as $id => $semantic) {
-            if (isset($semantic->def)) {
+            if ($semantic->def) {
                 $lines[] .= sprintf("### %s\n\n[%s](%s)\n", $id, $id, $semantic->def) . PHP_EOL;
 
                 continue;

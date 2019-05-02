@@ -9,7 +9,7 @@ use Koriym\Alps\Exception\NoSemanticException;
 use function json_encode;
 use function property_exists;
 
-final class Semantic
+final class Semantic extends \stdClass
 {
     /**
      * @var string
