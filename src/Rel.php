@@ -11,14 +11,29 @@ use function property_exists;
 
 final class Rel extends \stdClass
 {
+    /**
+     * @var string
+     */
     public $id;
 
+    /**
+     * @var string
+     */
     public $rt;
 
+    /**
+     * @var string
+     */
     public $type;
 
+    /**
+     * @var string
+     */
     public $name;
 
+    /**
+     * @var array
+     */
     public $doc;
 
     public function __construct(\stdClass $prop)
@@ -30,15 +45,10 @@ final class Rel extends \stdClass
         if (! property_exists($prop, 'type')) {
             throw new NoSemanticException((string) json_encode($prop));
         }
-        if (property_exists($prop, 'name')) {
-            $this->name = $prop->name;
-        }
-        if (property_exists($prop, 'rt')) {
-            $this->rt = $prop->rt;
-        }
         $this->type = $prop->type;
-        if (property_exists($prop, 'doc')) {
-            $this->doc = $prop->doc;
-        }
+        $this->rt = $prop->rt ?? '';
+        $this->doc = $prop->doc ?? ['value' => ''];
+        $this->name = $prop->name ?? '';
+        $this->def = $prop->def ?? '';
     }
 }
