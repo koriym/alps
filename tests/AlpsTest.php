@@ -15,7 +15,7 @@ class AlpsTest extends TestCase
 
     protected function setUp() : void
     {
-        $this->alps = new Alps;
+        $this->alps = new Alps(__DIR__ . '/profile.json');
     }
 
     public function testIsInstanceOfAlps() : void

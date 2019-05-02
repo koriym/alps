@@ -10,6 +10,9 @@
         "id": "linkList",
         "name": "Link List",
         "type": "semantic",
+        "doc": {
+          "value": "List of `Link` descriptor"
+        },
         "descriptor": [
           {"href": "#id"},
           {"href": "#name"},
@@ -69,15 +72,16 @@
         "id": "link-list",
         "type": "safe",
         "name": "Link List",
-        "rt": "LinkList"
+        "rt": "linkList"
       },
       {
         "id": "link-item",
         "type": "safe",
         "name": "Link Item",
+        "rt": "linkItem",
         "descriptor": [
           {
-            "id": "#link_id"
+            "href": "#id"
           }
         ]
       },
@@ -85,9 +89,10 @@
         "id": "add-link",
         "type": "idempotent",
         "name": "Add new link",
+        "rt": "linkList",
         "descriptor": [
           {
-            "id": "#uri"
+            "href": "#uri"
           }
         ]
       }
