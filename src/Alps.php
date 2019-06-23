@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Koriym\Alps;
 
+use Koriym\Alps\Exception\DescriptorNotExistsException;
 use Koriym\Alps\Exception\DuplicatedIdException;
+use Koriym\Alps\Exception\InvalidProfileJsonException;
 use Koriym\Alps\Exception\NoTypeException;
 use function file_exists;
 use function file_get_contents;
 use function json_decode;
+use function json_last_error;
 use function property_exists;
 use function serialize;
 
@@ -35,6 +38,13 @@ final class Alps extends AbstractAlps
             throw new \RuntimeException($alpsFile);
         }
         $json = json_decode((string) file_get_contents($alpsFile));
+        $error = json_last_error();
+        if ($error) {
+            throw new InvalidProfileJsonException(json_last_error_msg());
+        }
+        if (! isset($json->alps->descriptor)) {
+            throw new DescriptorNotExistsException();
+        }
         $props = $json->alps->descriptor;
         $this->initDescriptor($props);
     }
