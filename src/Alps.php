@@ -25,7 +25,7 @@ final class Alps extends AbstractAlps
     /**
      * {@inheritdoc}
      */
-    public $rels;
+    public $rels = [];
 
     /**
      * @var array
